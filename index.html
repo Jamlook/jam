@@ -1,118 +1,120 @@
-﻿<!DOCTYPE HTML>
+<!doctype html><!-- 声明 当前文档的类型 html5 -->
 <html>
-<head>
-<meta charset="utf-8">
-<title>Gxs主页</title>
+	 <head>
+		 <meta charset="UTF-8"><!-- 页面编码 国际编码 -->
+		 <!-- 声明当前网页的三要素 -->
+		 <meta name="Keywords" content="关键词,关键字">
+		 <meta name="Description" content="描述信息">
+		 <title>3d - banner - 蓝桥老师</title>
+		 
+		 <!-- css 样式  层叠样式表 一件美丽的外衣 -->
+		 <style>
+			
+			*{margin:0;padding:0;}
+			/*
+				margin:上下 左右;
+				auto 自动填充
+			*/
+			.banner{width:900px;height:360px;margin:100px auto;perspective:700px;}
+			.banner ul li{
+				list-style:none;
+				width:225px;height:360px;
+				background:#98c4ef;
+				float:left;
+				position:relative;
+				transform-style:preserve-3d;
+				transition:1s;
+				transform:translateZ(-180px);
+			}
+			
+			.banner ul li div{
+				width:225px;height:360px;
+				background:rgba(0,0,0,0.6);
+				position:absolute;color:#fff;
+			}
+			
+			.banner ul li div:nth-child(1){
+				background:url("images/1.png");
+				bottom:360px;
+				transform:translateZ(180px) rotateX(90deg);
+				transform-origin:bottom;
+			}
+			.banner ul li div:nth-child(2){
+				background:url("images/2.png");
+				top:360px;
+				transform:translateZ(180px) rotateX(-90deg);
+				transform-origin:top;
+			}
+			.banner ul li div:nth-child(3){transform:translateZ(180px);background:url("images/3.png");}
+			.banner ul li div:nth-child(4){transform:translateZ(-180px) rotateX(180deg);background:url("images/4.png");}
 
-<meta property="wb:webmaster" content="75e250283a1c9481" />
-<meta property="qc:admins" content="1756432753312256714052617716675141767" />
-<meta property="qc:admins" content="175643275331225671405261771667514176" />
+			.banner ul li:nth-child(1){transition:1s 0s;}
+			.banner ul li:nth-child(2){transition:1s 0.2s;}
+			.banner ul li:nth-child(3){transition:1s 0.4s;}
+			.banner ul li:nth-child(4){transition:1s 0.6s;}
+
+			.banner ul li:nth-child(1) div{background-position:0 0;}
+			.banner ul li:nth-child(2) div{background-position:-225px 0;}
+			.banner ul li:nth-child(3) div{background-position:-450px 0;}
+			.banner ul li:nth-child(4) div{background-position:-675px 0;}
 
 
-<link href="css/main.css" rel="stylesheet" media="all" />
-<script src="js/jQuery.js" type="text/javascript"></script>
-<script src="js/fun.base.js" type="text/javascript"></script>
-<script src="js/julying.gridmenu.js" type="text/javascript"></script>
-<script src="js/julying.planettravel.js" type="text/javascript"></script>
-<script src="js/home.js" type="text/javascript"></script>
+		 </style>
 
-</head>
-<body>
+	 </head>
 
+	 <body>
+		
+		<!-- div 盒子 容器 层 -->
+		<!-- 以 class="自定义名称" 的样式我们称之为类样式  -->
+		<div class="banner">
+			<ul>
+				<li id="li">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</li>
+				<li>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</li>
+				<li>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</li>
+				<li style="z-index:-1;">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</li>
+			</ul>
+		</div>
+		
+		<script src="js/jquery.js"></script>
+		<script>
+			
+				//console.log($);
+				var i = 0;
+				$(".banner").click(function(){
+					if(i ==0){
+						$(".banner li").css({"transform":"translateZ(-180px) rotateX(90deg)"});
+						i = 1;
+					}else{
+						$(".banner li").css({"transform":"translateZ(-180px) rotateX(-90deg)"});
+						i = 0;
+					}
+				});
+				
 
-<div id="julyingGridMenu" class="gridMenu">
-	<h1 class="logos"><a href="http://down.admin5.com">Gxs</a></h1>
-	<div class="position">
-        <div id="about-me" class="about-me item">
-            <div class="show">
-            	<div class="thumb">01</div>
-                <div class="small-thumb"></div>
-            	<div class="title">关于我</div>
-                <div class="close"></div>
-            </div>            
-        </div>
-        
-       <div class="about-me-body body">        	
-            <div class="show">
-            	<div class="me"></div>
-                <div class="about"> 
-                  <strong class="name">零下一度</strong>
-             
-                </div><div class="clear"></div>
-                
-                <div class="introduction">
-                    
-                
-                  
-                        <a class="qq" target="_blank" href="http://down.admin5.com" title="网站源码">QQ</a>
-                        <a class="weibo tencent" target="_blank" href="http://down.admin5.com" title="js特效">JS特效</a>
-                    </p>
-                  
-                </div>
-         	</div><!-- .show-->
-            <div class="bg" child-num="20"></div>
-        </div><!-- .about-me-body-->
-        
-        <div id="link" class="link item">
-            <div class="show">
-                <div class="thumb">02</div>
-                <div class="small-thumb"></div>
-                <div class="title">社交网络</div> 
-                <div class="close"></div>
-            </div>       
-            <ul>
-                <li class="qq-weibo"><a href="http://down.admin5.com" target="_blank" title="网站源码">源码下载</a><span><b>01</b><font>ASP源码</font><i class="png"></i></span></li>
-                <li class="blog-works"><a href="http://down.admin5.com" target="_blank" title="慕浟佳的博客">田广宇的博客</a><span><b>02</b><font>技术博客</font><i class="png"></i></span></li>
-            </ul>
-        </div>
-        
-        
-        <div id="blog" class="blog item">
-            <div class="show">
-            	<div class="thumb">03</div>
-                <div class="small-thumb"></div>
-            	<div class="title">旅行、编程</div>                
-                <div class="close"></div>
-            </div>
-            <ul>
-                <li class="travel-photography"><a href="http://down.admin5.com" target="_blank" title="一起去旅行">一起去旅行</a><span><b>01</b><font>一起去旅行吧</font><i class="png"></i></span></li>
-                <li class="website-front-end"><a href="http://down.admin5.com" target="_blank" title="前端编程">前端编程</a><span><b>02</b><font>前端、web端编程</font><i class="png"></i></span></li>
-                <li class="mobile-terminal"><a href="http://down.admin5.com" target="_blank" title="手机端编程">手机端编程</a><span><b>03</b><font>手机端编程</font><i class="png"></i></span></li>
-            </ul>
-        </div>
-        
-        <div id="contact-me" class="contact-me item">
-            <div class="show">
-            	<div class="thumb">04</div>
-                <div class="small-thumb"></div>
-            	<div class="title">名片</div>
-                <div class="close"></div>
-            </div>
-        </div>
-        <div class="contact-me-body body">
-            <div class="show">
-            	<div class="business-card">                	
-&lt;card&gt;
-<ul>
-	<li>&lt;name&gt;<strong>零下一度</strong><span>&lt;/name&gt;</span></li>
-	<li>&lt;qq&gt;	<strong name="replace" val="2097636266">loading...</strong><span>&lt;/qq&gt;</span></li>
-	<li>&lt;email&gt;<strong name="replace" val="2097636266@qq.com">loading...</strong><span>&lt;/email&gt;</span></li>
-	< li > ＆lt; 链接＆gt; < strong > ayoujia.com </ strong > < span > ＆lt; / link ＆gt; </ span > </ i>
-</ul>  
-&lt;/card&gt;   
-				<div class="expand"></div>                            
-                </div>
-                
-            
-         	</div>
-            <div class="bg" child-num="0"></div>
-        </div>
-        
-        <div class="cells"><li class="cell"></li></div>
-    </div>
-</div><!-- #julyingGridMenu -->
-  
- 
+				
+		</script>
 
-</body>
+	 </body>
+
 </html>
